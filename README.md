@@ -1,17 +1,16 @@
-# my-html-css-JS-projects
-projects with html, css, JS projects
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ogunmodede Oluwaseyi - Resume</title>
+    <title>Oluwaseyi Ogunmodede - Portfolio</title>
     <style>
         :root {
             --primary-color: #2c3e50;
-            --accent-color: #3498db;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
             --text-color: #333;
-            --background-color: #f8f9fa;
+            --light-bg: #f5f6fa;
         }
 
         * {
@@ -24,212 +23,341 @@ projects with html, css, JS projects
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background: var(--background-color);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 8px;
+        section {
+            margin: 4rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .contact-info {
-            font-size: 1.1rem;
-        }
-
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title {
-            color: var(--accent-color);
-            font-size: 1.8rem;
+        h2 {
+            color: var(--primary-color);
             margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
+            position: relative;
         }
 
-        .entry {
-            margin-bottom: 1.5rem;
-        }
-
-        .entry-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .entry-subtitle {
-            color: var(--accent-color);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .entry-date {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 0.5rem;
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
 
-        .skill-item {
-            background: white;
+        .skill-card {
+            background: var(--light-bg);
             padding: 1rem;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--primary-color);
         }
 
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
             }
-
-            .header h1 {
-                font-size: 2rem;
+            
+            section {
+                margin: 2rem 0;
             }
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .experience-card {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .experience-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .experience-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-card li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .education-card {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .tech-stack {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-stack span {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Oluwaseyi Ogunmodede</h1>
+        <p>Frontend Developer</p>
+    </header>
+
     <div class="container">
-        <header class="header">
-            <h1>Ogunmodede Oluwaseyi</h1>
-            <div class="contact-info">
-                <p>Frontend Developer</p>
-                <p>📱 Phone: 08131196504</p>
-                <p>📧 Email: oluwaseyi564@gma.com</p>
-                <p>🔗 LinkedIn: linkedin.com/in/seyiogunmodede</p>
-                <p>💻 GitHub: github.com/seyidev</p>
-                <p>📍 Lagos, Nigeria</p>
-            </div>
-        </header>
-
-        <section class="section">
-            <h2 class="section-title">Professional Summary</h2>
-            <p>Detail-oriented Frontend Developer with 1.5 years of experience specializing in modern JavaScript frameworks and responsive web design. Passionate about creating intuitive user interfaces and optimizing web performance. Strong background in mathematics contributing to problem-solving abilities and analytical thinking.</p>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Oluwaseyi Ogunmodede, a Frontend Developer with 1.5 years of professional experience in building modern, responsive web applications. With a strong foundation in mathematics from my Industrial Mathematics degree, I bring analytical thinking and problem-solving skills to frontend development. I'm passionate about creating intuitive user interfaces and optimizing web performance to deliver exceptional user experiences.</p>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="entry">
-                <h3 class="entry-title">Bachelor of Science in Industrial Mathematics</h3>
-                <div class="entry-subtitle">Federal University of Technology, Akure</div>
-                <div class="entry-date">2015 - 2020</div>
-                <ul>
-                    <li>Relevant Coursework: Statistical Analysis, Mathematical Modeling, Numerical Computing</li>
-                    <li>Applied mathematical concepts to solve complex problems and develop analytical thinking</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="entry">
-                <h3 class="entry-title">Junior Frontend Developer</h3>
-                <div class="entry-subtitle">EASYWIN</div>
-                <div class="entry-date">August 2023 - December 2023</div>
-                <ul>
-                    <li>Developed responsive and accessible user interfaces using React.js and Tailwind CSS</li>
-                    <li>Implemented modern frontend practices including component-based architecture and state management with Redux</li>
-                    <li>Collaborated with UI/UX designers to transform Figma designs into pixel-perfect implementations</li>
-                    <li>Improved website performance by 40% through code splitting and lazy loading techniques</li>
-                </ul>
-            </div>
-            
-            <div class="entry">
-                <h3 class="entry-title">Frontend Developer</h3>
-                <div class="entry-subtitle">MAKA</div>
-                <div class="entry-date">June 2022 - February 2023</div>
-                <ul>
-                    <li>Built and maintained responsive web applications using Vue.js and SCSS</li>
-                    <li>Implemented client-side form validation and API integration using Axios</li>
-                    <li>Reduced page load times by 30% through image optimization and caching strategies</li>
-                    <li>Collaborated with backend developers to integrate RESTful APIs and WebSocket connections</li>
-                </ul>
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Junior Frontend Developer</h3>
+                    <p class="company">EASYWIN</p>
+                    <p class="duration">August 2023 - December 2023</p>
+                    <ul>
+                        <li>Developed responsive user interfaces using React.js and Tailwind CSS</li>
+                        <li>Implemented state management solutions with Redux</li>
+                        <li>Collaborated with designers to transform Figma designs into pixel-perfect implementations</li>
+                        <li>Optimized application performance through code splitting and lazy loading</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <h3>Frontend Developer</h3>
+                    <p class="company">MAKA</p>
+                    <p class="duration">June 2022 - February 2023</p>
+                    <ul>
+                        <li>Built responsive web applications using Vue.js and SCSS</li>
+                        <li>Implemented client-side form validation and API integrations</li>
+                        <li>Optimized web performance through modern caching strategies</li>
+                        <li>Worked with backend team to integrate RESTful APIs</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Technical Skills</h2>
+        <section id="skills">
+            <h2>Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-item">HTML5 & CSS3</div>
-                <div class="skill-item">JavaScript (ES6+)</div>
-                <div class="skill-item">React.js</div>
-                <div class="skill-item">Vue.js</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">Tailwind CSS</div>
-                <div class="skill-item">SCSS/SASS</div>
-                <div class="skill-item">Redux/Vuex</div>
-                <div class="skill-item">Jest & React Testing Library</div>
-                <div class="skill-item">Webpack</div>
-                <div class="skill-item">Git & GitHub</div>
-                <div class="skill-item">Responsive Design</div>
-                <div class="skill-item">Web Performance</div>
-                <div class="skill-item">Figma</div>
+                <div class="skill-card">
+                    <h3>HTML5</h3>
+                    <p>Semantic markup, Accessibility, Forms, HTML5 APIs</p>
+                </div>
+                <div class="skill-card">
+                    <h3>CSS3</h3>
+                    <p>Flexbox, Grid, Animations, Responsive Design, Media Queries</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>DOM Manipulation, ES6+, Async/Await, Event Handling, Web APIs</p>
+                </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Projects</h2>
-            <div class="entry">
-                <h3 class="entry-title">Modern E-commerce Frontend</h3>
-                <div class="entry-subtitle">Personal Project</div>
-                <ul>
-                    <li>Developed a modern e-commerce frontend using React.js, TypeScript, and Tailwind CSS</li>
-                    <li>Implemented advanced features like infinite scroll, cart management, and wishlist functionality</li>
-                    <li>Achieved 95+ Lighthouse score for performance and accessibility</li>
-                </ul>
-            </div>
-            <div class="entry">
-                <h3 class="entry-title">Weather Dashboard</h3>
-                <div class="entry-subtitle">Collaborative Project</div>
-                <ul>
-                    <li>Built a weather dashboard using Vue.js and OpenWeatherMap API</li>
-                    <li>Implemented geolocation features and interactive weather maps</li>
-                    <li>Created reusable components for weather data visualization</li>
-                </ul>
-            </div>
-            <div class="entry">
-                <h3 class="entry-title">Portfolio Website</h3>
-                <div class="entry-subtitle">Personal Project</div>
-                <ul>
-                    <li>Designed and developed a personal portfolio using React.js and Framer Motion</li>
-                    <li>Implemented smooth animations and transitions for enhanced user experience</li>
-                    <li>Optimized for cross-browser compatibility and mobile responsiveness</li>
-                </ul>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-card">
+                <h3>B.Sc. Industrial Mathematics</h3>
+                <p class="school">Federal University of Technology, Akure</p>
+                <p>Applied mathematical concepts and analytical thinking to problem-solving in technology</p>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Certifications</h2>
-            <div class="entry">
-                <h3 class="entry-title">Meta Frontend Developer Professional Certificate</h3>
-                <div class="entry-date">2023</div>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="project1.jpg" alt="Interactive Dashboard">
+                    <div class="project-info">
+                        <h3>Interactive Dashboard</h3>
+                        <p>A responsive dashboard with real-time data visualization, custom charts, and interactive filters. Features smooth animations and cross-browser compatibility.</p>
+                        <div class="tech-stack">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="project2.jpg" alt="Form Validation">
+                    <div class="project-info">
+                        <h3>Dynamic Form Validation</h3>
+                        <p>Custom form validation system with real-time feedback, password strength meter, and dynamic input masking for different field types.</p>
+                        <div class="tech-stack">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="project3.jpg" alt="Image Gallery">
+                    <div class="project-info">
+                        <h3>Interactive Image Gallery</h3>
+                        <p>Responsive image gallery with custom lightbox, touch-enabled navigation, and lazy loading for optimal performance.</p>
+                        <div class="tech-stack">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="entry">
-                <h3 class="entry-title">JavaScript Algorithms and Data Structures - freeCodeCamp</h3>
-                <div class="entry-date">2022</div>
-            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.8s ease forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
+
